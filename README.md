@@ -70,11 +70,10 @@
     ScreenUtil.getDimensValue("50"); 即可找出对应的values-sw[XX]]dp/dimens.xml内对应的数据
     ```
     public class ScreenUtil {
-        public static float getDimensValue(String dp) {
+        public static float getDimensValue(Context context, String dp) {
             String name = "common_measure_"+dp+"dp";
             float value = 0;
             try {
-                Context context = AppHelper.getAppContext();
                 int id = context.getResources().getIdentifier(name, "dimen", context.getPackageName());
                 value = context.getResources().getDimension(id);
             } catch (Exception e) {
